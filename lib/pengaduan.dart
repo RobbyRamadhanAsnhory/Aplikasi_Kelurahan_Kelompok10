@@ -1,42 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:uas_kelurahan_kelompok10/Home.dart';
 import 'package:uas_kelurahan_kelompok10/Login.dart';
-import 'constants.dart';
-import 'drawer.dart';
+import 'data/constants.dart';
+import 'item/drawer.dart';
 
 class PengaduanPage extends StatefulWidget {
+  const PengaduanPage({Key key}) : super(key: key);
   static const routeName = '/Home';
   @override
   _PengaduanPageState createState() => _PengaduanPageState();
 }
 
-int _selectedItemIndex = 0;
-final List pages = [
-  LoginPage(),
-  null,
-  null,
-  PengaduanPage(),
-  null,
-];
-
 class _PengaduanPageState extends State<PengaduanPage> {
+  var _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Row(
-        children: [
-          buildNavBarItem(Icons.home, 0),
-          buildNavBarItem(Icons.card_giftcard, 1),
-          buildNavBarItem(Icons.camera, 2),
-          buildNavBarItem(Icons.pie_chart, 3),
-          buildNavBarItem(Icons.person, 4),
-        ],
-      ),
+      backgroundColor: Colors.grey[200],
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text('Pengaduan'),
         backgroundColor: ColorPalette.primaryColor,
+        elevation: 1,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
       ),
-      drawer: MainDrawer(),
       body: Stack(
         children: [
           Container(
@@ -56,24 +51,35 @@ class _PengaduanPageState extends State<PengaduanPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    buildExpenseBotton(Icons.phone, "Telepon", true),
+                    buildExpenseBotton(Icons.phone, "Telepon", false),
                     buildExpenseBotton(Icons.photo_camera, "Bukti", false),
                     buildExpenseBotton(Icons.card_membership, "Card", false),
                     buildExpenseBotton(Icons.ev_station, "Lainnya", false),
                   ],
-                )
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "Call Center Pengaduan:",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
               ],
             ),
           ),
           Positioned(
-            top: 110,
+            top: 150,
             height: MediaQuery.of(context).size.height - 230,
             child: Column(
               children: [
                 Container(
                   height: 150,
                   width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.only(left: 30, right: 30, top: 30),
+                  padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                   decoration: BoxDecoration(
                       color: Colors.grey[100],
                       borderRadius: BorderRadius.only(
@@ -84,14 +90,14 @@ class _PengaduanPageState extends State<PengaduanPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Riwayat",
+                        "Contact",
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Colors.grey),
                       ),
                       SizedBox(
-                        height: 15,
+                        height: 10,
                       ),
                       Expanded(
                         child: ListView(
@@ -115,13 +121,16 @@ class _PengaduanPageState extends State<PengaduanPage> {
                 ),
                 Expanded(
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 30.0),
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(color: Colors.white),
                     child: ListView(
                       children: [
+                        SizedBox(
+                          height: 10,
+                        ),
                         Text(
-                          "Contact",
+                          "Riwayat",
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -139,7 +148,7 @@ class _PengaduanPageState extends State<PengaduanPage> {
                           ),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 6,
                         ),
                         buildContactRow("Pak Lurah", "+62836254122",
                             "http://sendangguwo.semarangkota.go.id/templates/default/images/paklurah2.jpeg"),
@@ -259,7 +268,7 @@ class _PengaduanPageState extends State<PengaduanPage> {
             ),
           ),
           SizedBox(
-            height: 5,
+            height: 8,
           ),
           Text(
             name,
@@ -298,33 +307,6 @@ class _PengaduanPageState extends State<PengaduanPage> {
             ),
           )
         ],
-      ),
-    );
-  }
-
-  GestureDetector buildNavBarItem(IconData icon, int index) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          _selectedItemIndex = index;
-        });
-      },
-      child: Container(
-        width: MediaQuery.of(context).size.width / 5,
-        height: 60,
-        decoration: index == _selectedItemIndex
-            ? BoxDecoration(
-                border:
-                    Border(bottom: BorderSide(width: 4, color: Colors.green)),
-                gradient: LinearGradient(colors: [
-                  Colors.green.withOpacity(0.3),
-                  Colors.green.withOpacity(0.016),
-                ], begin: Alignment.bottomCenter, end: Alignment.topCenter))
-            : BoxDecoration(),
-        child: Icon(
-          icon,
-          color: index == _selectedItemIndex ? Color(0XFF00B868) : Colors.grey,
-        ),
       ),
     );
   }

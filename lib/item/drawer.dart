@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:uas_kelurahan_kelompok10/constants.dart';
+import 'package:uas_kelurahan_kelompok10/Home.dart';
+import 'package:uas_kelurahan_kelompok10/Login.dart';
+import 'package:uas_kelurahan_kelompok10/data/constants.dart';
+import 'package:uas_kelurahan_kelompok10/item/bottomnav.dart';
+import 'package:uas_kelurahan_kelompok10/pengaduan.dart';
+import 'package:uas_kelurahan_kelompok10/profile.dart';
+import 'package:uas_kelurahan_kelompok10/service.dart';
 
 class MainDrawer extends StatelessWidget {
   @override
@@ -46,26 +52,13 @@ class MainDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.home),
+            onTap: () {
+              Route route =
+                  MaterialPageRoute(builder: (context) => BottomNav());
+              Navigator.push(context, route);
+            },
             title: Text(
               'Home',
-              style: TextStyle(
-                fontSize: 15,
-              ),
-            ),
-          ),
-          ListTile(
-            leading: Icon(Icons.person),
-            title: Text(
-              'Profile',
-              style: TextStyle(
-                fontSize: 15,
-              ),
-            ),
-          ),
-          ListTile(
-            leading: Icon(Icons.info),
-            title: Text(
-              'Info Desa',
               style: TextStyle(
                 fontSize: 15,
               ),
@@ -91,6 +84,12 @@ class MainDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.logout),
+            onTap: () async {
+              Route route =
+                  MaterialPageRoute(builder: (context) => LoginPage());
+              Fireservice.signout();
+              Navigator.pushAndRemoveUntil(context, route, (route) => false);
+            },
             title: Text(
               'Logout',
               style: TextStyle(

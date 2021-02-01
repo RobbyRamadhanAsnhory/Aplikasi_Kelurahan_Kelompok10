@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'constants.dart';
+import 'package:provider/provider.dart';
+import 'package:uas_kelurahan_kelompok10/item/bottomnav.dart';
+import 'data/constants.dart';
 import 'Login.dart';
 import 'dart:async';
 
@@ -9,6 +12,7 @@ class SplashScreenPage extends StatefulWidget {
 }
 
 class _SplashScreenPageState extends State<SplashScreenPage> {
+  User user;
   @override
   void initState() {
     super.initState();
@@ -18,13 +22,20 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   startSplashScreen() async {
     var duration = const Duration(seconds: 5);
     return Timer(duration, () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
-        return LoginPage();
-      }));
+      if (user != null) {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
+          return BottomNav();
+        }));
+      } else {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
+          return LoginPage();
+        }));
+      }
     });
   }
 
   Widget build(BuildContext context) {
+    user = Provider.of<User>(context);
     return Scaffold(
       body: Container(
         color: ColorPalette.primaryColor,
