@@ -85,9 +85,9 @@ class _CalenderPageState extends State<CalenderPage> {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        buildTaskListItem(),
-                        buildTaskListItem(),
-                        buildTaskListItem(),
+                        buildTaskListItem1(),
+                        buildTaskListItem2(),
+                        buildTaskListItem3(),
                       ],
                     ),
                   ),
@@ -100,7 +100,7 @@ class _CalenderPageState extends State<CalenderPage> {
     );
   }
 
-  Container buildTaskListItem() {
+  Container buildTaskListItem1() {
     return Container(
       margin: EdgeInsets.only(bottom: 25),
       child: Column(
@@ -210,7 +210,7 @@ class _CalenderPageState extends State<CalenderPage> {
                           height: 5,
                         ),
                         Text(
-                          "+62836254122",
+                          "+628532261738",
                           style: TextStyle(
                             color: Colors.grey,
                             fontSize: 12,
@@ -238,6 +238,334 @@ class _CalenderPageState extends State<CalenderPage> {
                       children: [
                         Text(
                           "Jl.Caringin No.62",
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Rt01 , Rw02",
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Container buildTaskListItem2() {
+    return Container(
+      margin: EdgeInsets.only(bottom: 25),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 15,
+                height: 10,
+                decoration: BoxDecoration(
+                    color: Colors.orange,
+                    borderRadius: BorderRadius.horizontal(
+                      right: Radius.circular(5),
+                    )),
+              ),
+              SizedBox(
+                width: 15,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width - 60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    RichText(
+                      text: TextSpan(
+                          text: "09:00",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                          children: [
+                            TextSpan(
+                              text: " AM",
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                color: Colors.grey,
+                              ),
+                            )
+                          ]),
+                    ),
+                    Text(
+                      "1 h 45 min",
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            height: 185,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                border: Border.all(width: 1, color: Colors.grey[300]),
+                borderRadius: BorderRadius.circular(20)),
+            margin: EdgeInsets.only(right: 10, left: 30),
+            padding: EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Staff Umum",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  "Shift Middle",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 12,
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CircleAvatar(
+                      radius: 9,
+                      backgroundImage: NetworkImage(
+                          "https://1.bp.blogspot.com/-CCGXBrN7Bss/XipyOGp8bAI/AAAAAAAAFZ8/cTzH4jzXWlIKnbYb9BEFoWzq0oxloZiDwCLcBGAsYHQ/s640/IMG_20200124_111358.jpg"),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Bapak Syamsudin",
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "+62897643678",
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.location_on,
+                      size: 20,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Jl.Soekarno Hatta No.100",
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Rt01 , Rw02",
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Container buildTaskListItem3() {
+    return Container(
+      margin: EdgeInsets.only(bottom: 25),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 15,
+                height: 10,
+                decoration: BoxDecoration(
+                    color: Colors.orange,
+                    borderRadius: BorderRadius.horizontal(
+                      right: Radius.circular(5),
+                    )),
+              ),
+              SizedBox(
+                width: 15,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width - 60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    RichText(
+                      text: TextSpan(
+                          text: "10:30",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                          children: [
+                            TextSpan(
+                              text: " AM",
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                color: Colors.grey,
+                              ),
+                            )
+                          ]),
+                    ),
+                    Text(
+                      "1 h 45 min",
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            height: 185,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                border: Border.all(width: 1, color: Colors.grey[300]),
+                borderRadius: BorderRadius.circular(20)),
+            margin: EdgeInsets.only(right: 10, left: 30),
+            padding: EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Staff Umum",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  "Shift Siang",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 12,
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CircleAvatar(
+                      radius: 9,
+                      backgroundImage: NetworkImage(
+                          "https://cdn-2.tstatic.net/style/foto/bank/images/aktor-arya-saloka.jpg"),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Bapak Saloka",
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "+628543346788",
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.location_on,
+                      size: 20,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Jl.Kopo Raya No.62",
                           style: TextStyle(
                             fontSize: 15,
                           ),

@@ -153,6 +153,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     SizedBox(
                       height: 35,
                     ),
+                    buildTextField("Nik", snapshot.data.data()["nik"], false),
                     buildTextField(
                         "Full Name", snapshot.data.data()["nama"], false),
                     buildTextField(

@@ -1,3 +1,4 @@
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,23 @@ class _LayananPageState extends State<LayananPage> {
       ),
       body: ListView(
         children: [
+          Container(
+            height: 200.0,
+            child: new Carousel(
+              boxFit: BoxFit.cover,
+              images: [
+                AssetImage('lib/images/layanan1.jpg'),
+                AssetImage('lib/images/layanan2.jpg'),
+                AssetImage('lib/images/layanan3.jpg'),
+                AssetImage('lib/images/layanan4.jpg'),
+              ],
+              autoplay: true,
+              animationCurve: Curves.fastLinearToSlowEaseIn,
+              animationDuration: Duration(milliseconds: 1000),
+              dotSize: 4.0,
+              indicatorBgPadding: 2.0,
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(15),
             child: Text(
@@ -34,6 +52,9 @@ class _LayananPageState extends State<LayananPage> {
                 fontWeight: FontWeight.bold,
               ),
             ),
+          ),
+          SizedBox(
+            height: 10,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -58,7 +58,6 @@ class _SettingProfilePageState extends State<SettingProfilePage> {
               height: 10,
             ),
             buildAccountOptionRow(context, "Change password"),
-            buildAccountOptionRow(context, "Content settings"),
             buildAccountOptionRow(context, "Social"),
             buildAccountOptionRow(context, "Language"),
             buildAccountOptionRow(context, "Privacy and security"),
@@ -93,17 +92,6 @@ class _SettingProfilePageState extends State<SettingProfilePage> {
             SizedBox(
               height: 50,
             ),
-            Center(
-              child: OutlineButton(
-                padding: EdgeInsets.symmetric(horizontal: 40),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                onPressed: () {},
-                child: Text("SIGN OUT",
-                    style: TextStyle(
-                        fontSize: 16, letterSpacing: 2.2, color: Colors.black)),
-              ),
-            )
           ],
         ),
       ),

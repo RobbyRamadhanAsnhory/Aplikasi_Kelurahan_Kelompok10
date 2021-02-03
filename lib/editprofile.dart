@@ -55,7 +55,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           },
         ),
         title: Text(
-          'Edit Profile',
+          'Edit Biodata',
           style: TextStyle(
             color: Colors.black,
           ),

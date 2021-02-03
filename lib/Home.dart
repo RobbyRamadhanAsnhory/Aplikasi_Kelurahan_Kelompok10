@@ -1,11 +1,14 @@
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:uas_kelurahan_kelompok10/biodata.dart';
+import 'package:uas_kelurahan_kelompok10/infodesa.dart';
 import 'package:uas_kelurahan_kelompok10/item/bottomnav.dart';
 import 'package:uas_kelurahan_kelompok10/layanan.dart';
 import 'package:uas_kelurahan_kelompok10/pengaduan.dart';
+import 'package:uas_kelurahan_kelompok10/program.dart';
 import 'package:uas_kelurahan_kelompok10/riwayat.dart';
 import 'package:uas_kelurahan_kelompok10/service.dart';
 import 'Login.dart';
@@ -179,6 +182,36 @@ class _PageHomeState extends State<PageHome> {
                     padding: EdgeInsets.only(top: 55),
                     children: [
                       Text(
+                        "HightLight",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      new Container(
+                        height: 200.0,
+                        child: new Carousel(
+                          boxFit: BoxFit.cover,
+                          images: [
+                            AssetImage('lib/images/hightlight1.jpeg'),
+                            AssetImage('lib/images/hightlight2.jpg'),
+                            AssetImage('lib/images/hightlight3.jpg'),
+                            AssetImage('lib/images/hightlight4.jpeg'),
+                          ],
+                          autoplay: true,
+                          animationCurve: Curves.fastLinearToSlowEaseIn,
+                          animationDuration: Duration(milliseconds: 1000),
+                          dotSize: 4.0,
+                          indicatorBgPadding: 2.0,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
                         "Activity",
                         style: TextStyle(
                             fontSize: 18,
@@ -198,7 +231,7 @@ class _PageHomeState extends State<PageHome> {
                               "Riwayat",
                               Colors.cyanAccent.withOpacity(0.4),
                               Color(0XFF0097A7)),
-                          buildActivityButton(
+                          buildActivityButtonInfo(
                               Icons.pie_chart,
                               "Info Desa",
                               Color(0XFFD7CCC8).withOpacity(0.4),
@@ -208,9 +241,9 @@ class _PageHomeState extends State<PageHome> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          buildActivityButton(
-                              Icons.request_page_outlined,
-                              "Pajak",
+                          buildActivityButtonProgram(
+                              Icons.assignment,
+                              "Program",
                               Color(0XFF69F0AE).withOpacity(0.4),
                               Color(0XFF01579B)),
                           buildActivityButtonLayanan(
@@ -354,7 +387,9 @@ class _PageHomeState extends State<PageHome> {
                           height: 10,
                         ),
                         Text(
-                          "Status Belum Bekerja",
+                          snapshot.data.data()["pekerjaan"] == ""
+                              ? "Status Pekerjaan Belum Ada"
+                              : snapshot.data.data()["pekerjaan"],
                           style: TextStyle(
                             fontSize: 13,
                             fontStyle: FontStyle.italic,
@@ -364,7 +399,7 @@ class _PageHomeState extends State<PageHome> {
                           height: 3,
                         ),
                         Text(
-                          "Tidak Ada Data Pendapatan & Pengeluaran",
+                          "Data Pendapatan & Pengeluaran",
                           style: TextStyle(
                             fontSize: 13,
                             fontStyle: FontStyle.italic,
@@ -480,11 +515,43 @@ class _PageHomeState extends State<PageHome> {
     );
   }
 
-  GestureDetector buildActivityButton(
+  GestureDetector buildActivityButtonProgram(
       IconData icon, String title, Color backgroundColor, Color iconColor) {
     return GestureDetector(
       onTap: () => Navigator.of(context).push(
-          MaterialPageRoute(builder: (BuildContext context) => NotFound())),
+          MaterialPageRoute(builder: (BuildContext context) => ProgramPage())),
+      child: Container(
+        margin: EdgeInsets.all(10),
+        height: 90,
+        width: 90,
+        decoration: BoxDecoration(
+            color: backgroundColor, borderRadius: BorderRadius.circular(10.0)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              color: iconColor,
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Text(
+              title,
+              style:
+                  TextStyle(color: Colors.black54, fontWeight: FontWeight.bold),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  GestureDetector buildActivityButtonInfo(
+      IconData icon, String title, Color backgroundColor, Color iconColor) {
+    return GestureDetector(
+      onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (BuildContext context) => InfoDesaPage())),
       child: Container(
         margin: EdgeInsets.all(10),
         height: 90,

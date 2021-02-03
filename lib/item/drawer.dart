@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:uas_kelurahan_kelompok10/Home.dart';
 import 'package:uas_kelurahan_kelompok10/Login.dart';
+import 'package:uas_kelurahan_kelompok10/bantuan.dart';
 import 'package:uas_kelurahan_kelompok10/data/constants.dart';
 import 'package:uas_kelurahan_kelompok10/item/bottomnav.dart';
 import 'package:uas_kelurahan_kelompok10/pengaduan.dart';
 import 'package:uas_kelurahan_kelompok10/profile.dart';
 import 'package:uas_kelurahan_kelompok10/service.dart';
+import 'package:uas_kelurahan_kelompok10/settingprofile.dart';
 
 class MainDrawer extends StatelessWidget {
   @override
@@ -66,6 +68,11 @@ class MainDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.announcement_outlined),
+            onTap: () {
+              Route route =
+                  MaterialPageRoute(builder: (context) => BantuanPage());
+              Navigator.push(context, route);
+            },
             title: Text(
               'Bantuan',
               style: TextStyle(
@@ -75,6 +82,11 @@ class MainDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.settings),
+            onTap: () {
+              Route route =
+                  MaterialPageRoute(builder: (context) => SettingProfilePage());
+              Navigator.push(context, route);
+            },
             title: Text(
               'Setting',
               style: TextStyle(
